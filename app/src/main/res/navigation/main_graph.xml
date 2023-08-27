@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/signUpFragment">
+
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.budgetapp.ui.signin.SignInFragment"
+        android:label="SignInFragment"
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/signinToSummary"
+            app:destination="@id/summaryFragment" />
+        <action
+            android:id="@+id/signinToSignup"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/expenseFragment"
+        android:name="com.example.budgetapp.ui.expense.ExpenseFragment"
+        android:label="fragment_expense"
+        tools:layout="@layout/fragment_expense" >
+        <action
+            android:id="@+id/expenseToAddorEdit"
+            app:destination="@id/addorEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/incomeFragment"
+        android:name="com.example.budgetapp.ui.income.IncomeFragment"
+        android:label="fragment_income"
+        tools:layout="@layout/fragment_income" >
+        <action
+            android:id="@+id/incomeToAddorEdit"
+            app:destination="@id/addorEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.budgetapp.ui.signup.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/sigupToSummary"
+            app:destination="@id/summaryFragment" />
+        <action
+            android:id="@+id/signupToSignin"
+            app:destination="@id/signInFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.example.budgetapp.ui.summary.SummaryFragment"
+        android:label="fragment_summary"
+        tools:layout="@layout/fragment_summary" >
+        <action
+            android:id="@+id/summaryToAdd"
+            app:destination="@id/addorEditFragment" />
+        <action
+            android:id="@+id/summaryToSignin"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/addorEditFragment"
+        android:name="com.example.budgetapp.ui.addoredit.AddorEditFragment"
+        android:label="fragment_addor_edit"
+        tools:layout="@layout/fragment_addor_edit" >
+        <argument
+            android:name="incomeExpense"
+            app:argType="com.example.budgetapp.data.model.IncomeExpense"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </dialog>
+</navigation>
